@@ -1,0 +1,4 @@
+interface:
+  display_name: "BRV 公众号分析写作推送"
+  short_description: "分析、写作、排版并推送多账号公众号草稿"
+  default_prompt: "使用 $brvwechat-anylasys-write-pusher 为一个公众号完成选题、写作和草稿准备。"
