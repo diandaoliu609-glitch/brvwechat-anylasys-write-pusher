@@ -13,6 +13,7 @@ description: 规划、分析、撰写、排版并推送任意微信公众号文�
 
 - 要做账号诊断、栏目设计、选题池或复盘时，读 [账号分析与写作](references/account-analysis-and-writing.md)。
 - 要为既有「低空智瞰」工作时，读 [低空智瞰运营手册](references/operating-playbook.md)。
+- 要写开源算法、三维采集、相机视觉、企业案例或无人机产品时，再读 [低空工程与案例写作](references/low-altitude-engineering.md)。
 - 要自动生成「低空智瞰」草稿时，同时读 [低空智瞰自动化](references/low-altitude-automation.md)，并在推送前运行确定性校验。
 - 要排版、配置多账号凭据或推送到草稿箱时，读 [草稿推送](references/draft-publishing.md)。
 
