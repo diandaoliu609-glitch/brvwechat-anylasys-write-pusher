@@ -14,10 +14,18 @@ from urllib.parse import urlparse
 RULES = {
     "政策雷达": {"min_chars": 1200, "max_chars": 2200, "min_sources": 2, "min_ab": 2},
     "智瞰深一度": {"min_chars": 1500, "max_chars": 2600, "min_sources": 2, "min_ab": 2},
+    "工程实战": {"min_chars": 1600, "max_chars": 2800, "min_sources": 3, "min_ab": 2},
+    "企业与案例": {"min_chars": 1500, "max_chars": 2400, "min_sources": 3, "min_ab": 2},
+    "产品观察": {"min_chars": 1400, "max_chars": 2200, "min_sources": 3, "min_ab": 2},
     "一周低空情报": {"min_chars": 900, "max_chars": 1600, "min_sources": 3, "min_ab": 2},
 }
 
 REQUIRED_PHRASES = ("更新时间", "数据来源", "免责声明", "接下来")
+COLUMN_REQUIRED_PHRASES = {
+    "工程实战": ("复现条件", "参数边界", "适用场景", "失效条件", "开源许可"),
+    "企业与案例": ("项目阶段", "证据边界"),
+    "产品观察": ("参数口径", "适用场景", "限制条件"),
+}
 UNRESOLVED_MARKERS = ("待补", "待核验", "TODO", "TBD", "据公开报道")
 RISKY_CLAIMS = (
     "全面放开", "强制倒计时", "稳赚", "必然上涨", "无风险", "内部消息",
@@ -102,6 +110,9 @@ def validate(manifest: dict) -> list[str]:
     for phrase in REQUIRED_PHRASES:
         if phrase not in text:
             errors.append(f"正文缺少必要内容：{phrase}")
+    for phrase in COLUMN_REQUIRED_PHRASES.get(column, ()):
+        if phrase not in text:
+            errors.append(f"{column}缺少必要内容：{phrase}")
     return errors
 
 
